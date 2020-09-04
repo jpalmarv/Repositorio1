@@ -10,9 +10,8 @@ int main(void)
   std::cout.precision(8); std::cout.setf(std::ios::scientific);
 
   for(float ii = 0; ii <= 1; ii = ii + 0.01){
-    std::cout << ii
-	      << "\t" << original(ii)
-	      << std::endl;
+    std::cout << ii << "\t" << original(ii) << "\n";
+	      
   }
   return 0;
 }
