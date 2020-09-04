@@ -3,8 +3,10 @@
 
 
 float original(float x);
-float mejor(float x);
+//float mejor(float x);
 float mejor2(float x);
+
+float a = 0.01;
 
 int main(void)
 {
@@ -13,11 +15,15 @@ int main(void)
   std::cout << "Grupo:\n";
   std::cout << "Jorge Palmar Velasco\n";
   std::cout << "Jorge Palmar Velasco\n";
-
-  for(float ii = 0.00; ii <= 1.00; ii += 0.01){
-    std::cout << ii
-	      << "\t" << original(ii)
-	      << "\t" << mejor(ii)
+  
+  for(int  i = 0; i <= 100; ++i){
+    float x1 = i*a;
+    float f1 = original(x1);
+    float f2 = mejor2(x1);
+    
+    std::cout << x1
+	      << "\t" << f1
+	      << "\t" << f2
 	      << "\n";    
   }
   return 0;
@@ -25,19 +31,18 @@ int main(void)
 
 float original(float x)
 {
-  x = 5 - std::sqrt( 25 + std::pow(x,2));
-  return x;
+  return  5 - std::sqrt( 25 + std::pow(x,2));
 }
-
-float mejor(float x)
-{
-  x = 5 - std::sqrt( std::pow((x+5),2)-10*x);
-  return x;
-}
-
 float mejor2(float x)
 {
-  x = -(std::sqrt( 25 + std::pow(x,2)) - 5);
-  return x;
+  return -1.0*x*x/( 5 + std::sqrt( 25 + x*x));
 }
+
+//float mejor(float x)
+//{
+//x = 5 - std::sqrt( std::pow((x+5),2)-10*x);
+  //return x;
+//}
+
+
   
