@@ -1,7 +1,7 @@
 #include <iostream>
 #include <cmath>
 
-     
+
 float original(float x);
 float mejor(float x);
 float mejor2(float x);
@@ -9,10 +9,16 @@ float mejor2(float x);
 int main(void)
 {
   std::cout.precision(8); std::cout.setf(std::ios::scientific);
+ 
+  std::cout << "Grupo:\n";
+  std::cout << "Jorge Palmar Velasco\n";
+  std::cout << "Jorge Palmar Velasco\n";
 
-  for(float ii = 0.00; ii <= 1.00; ii = ii + 0.01){
-    std::cout << ii << "\t" << original(ii) << "\t" << mejor2(ii) << "\n";
-	      
+  for(float ii = 0.00; ii <= 1.00; ii += 0.01){
+    std::cout << ii
+	      << "\t" << original(ii)
+	      << "\t" << mejor(ii)
+	      << "\n";    
   }
   return 0;
 }
