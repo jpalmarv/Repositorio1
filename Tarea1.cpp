@@ -31,7 +31,7 @@ int main(void)
 
 float original(float x)
 {
-  return  5 - std::sqrt( 25 + std::pow(x,2));
+  return  5 - std::sqrt( 25 + x*x);
 }
 float mejor2(float x)
 {
