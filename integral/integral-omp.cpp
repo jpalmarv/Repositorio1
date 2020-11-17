@@ -21,7 +21,7 @@ int main(int argc, char **argv)
   start = std::chrono::steady_clock::now();
   integral_pragmafor(NTH, N);
   end = std::chrono::steady_clock::now();
-  print_elapsed(start, end);
+  //print_elapsed(start, end);
   
   return 0;
 }
