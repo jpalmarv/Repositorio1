@@ -60,5 +60,5 @@ double integral_pragmafor(int nthreads, int n)
 void print_elapsed(auto start, auto end)
 {
   std::cout.precision(6); std::cout.setf(std::ios::scientific);
-  std::cout << std::chrono::duration_cast<std::chrono::milliseconds>(end-start).count() << "\n";
+  std::cout << std::chrono::duration_cast<std::chrono::milliseconds>(end-start).count()/1000.0 << "\n";
 }
