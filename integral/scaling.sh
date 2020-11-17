@@ -5,8 +5,6 @@ echo "Starting strong scaling with system size: 1000000"
     done > scaling-$NS.txt
     
     echo "Computing parallel metrics from file scaling-$NS.txt ..."
-    awk 'BEGIN {TS=1.0;} { if(NR==1) TS=$2;  print $1, $2, TS/$2, TS/$2/$1}' scaling-$NS.txt
-    #> metrics-$NS.txt
-    #echo "Metrics saved to: metrics-$NS.txt"
-#done
-#echo "Done"
+    awk 'BEGIN {TS=1.0;} { if(NR==1) TS=$2;  print $1, $2, TS/$2, TS/$2/$1}' scaling-$NS.txt > metrics-$NS.txt
+    echo "Metrics saved to: metrics-$NS.txt"
+echo "Done"
