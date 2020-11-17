@@ -26,20 +26,11 @@ int main(int argc, char **argv)
 
 double integral(int n, double x, double dx, int nthreads)
 {
-  double sum = 0.0;
-#pragma omp parallel num_threads (nthreads)
-  {  
-    double sumlocal  = 0.0;
-    int nth = omp_get_num_threads();
-    int tid = omp_get_thread_num();
-    int SL = n/nth;
-
-    for(int ii = tid*SL; ii < tid*SL + SL; ++ii)
-      {
-	sumlocal += (10.0*ii/n)*(10.0*ii/n)*10/n;
-      }
-#pragma omp barrier
-    sum += sumlocal;    
-  }
+  double sum  = 0.0;
+#pragma omp parallel for  num_threads (nthreads) reduction(+:sum)
+  for(int ii = 0; ii < n; ++ii)
+    {
+      sum += (10.0*ii/n)*(10.0*ii/n)*10/n;
+    }
   return sum;
 }
