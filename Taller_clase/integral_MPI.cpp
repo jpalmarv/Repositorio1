@@ -22,7 +22,8 @@ int main(int argc, char **argv)
     double end = MPI_Wtime();
 
     if (0 == pid) {
-        std::cout << "Tiempo:" << end-start << "\n";
+        //std::cout << "Tiempo:" << end-start << "\n";
+        std::cout << end-start << "\n";
     }
     
     MPI_Finalize();
@@ -34,7 +35,7 @@ void integral(int ns,  int nslocal, int pid, int nproc)
 {
     int tag = 0;
     double x = 0.0, dx = 0.0, inlocal = 0.0, sum = 0.0;
-    dx = 10.0/ns;
+    dx = 100.0/ns;
     for(int ilocal = 0; ilocal < nslocal; ++ilocal){
         x = (ilocal+pid*nslocal)*dx;
         inlocal += x*x*dx;
@@ -48,10 +49,12 @@ void integral(int ns,  int nslocal, int pid, int nproc)
             MPI_Recv(&aux, 1, MPI_DOUBLE, src, tag, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
             sum += aux;
         }
-        std::cout.precision(14);
-        std::cout << "Resultado:" << sum << "\n";
+        //std::cout.precision(14);
+        //std::cout << "Resultado:" << sum << "\n";
     } else {
         int dest = 0;
         MPI_Send(&inlocal, 1, MPI_DOUBLE, dest, tag, MPI_COMM_WORLD);
     }
 }
+
+
