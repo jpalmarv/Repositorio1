@@ -49,7 +49,7 @@ void integral(int ns,  int nslocal, int pid, int nproc)
             sum += aux;
         }
         std::cout.precision(14);
-        std::cout << "La integral es:" << sum << "\n";
+        std::cout << "Resultado:" << sum << "\n";
     } else {
         int dest = 0;
         MPI_Send(&inlocal, 1, MPI_DOUBLE, dest, tag, MPI_COMM_WORLD);
