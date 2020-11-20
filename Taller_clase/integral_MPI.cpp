@@ -22,7 +22,7 @@ int main(int argc, char **argv)
     double end = MPI_Wtime();
 
     if (0 == pid) {
-        std::cout << end-start << "\n";
+        std::cout << "Tiempo:" << end-start << "\n";
     }
     
     MPI_Finalize();
