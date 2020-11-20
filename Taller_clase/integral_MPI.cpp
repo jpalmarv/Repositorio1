@@ -41,8 +41,7 @@ void integral(int ns,  int nslocal, int pid, int nproc)
         inlocal += x*x*dx;
     }
     if(pid == 0){
-        double aux
-            ;
+        double aux;
         sum = inlocal;
         
         for(int src = 1; src < nproc; ++src){
