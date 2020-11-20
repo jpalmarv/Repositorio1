@@ -1,5 +1,3 @@
-//compute the integral of x^2
-
 #include <iostream>
 #include "mpi.h"
 
